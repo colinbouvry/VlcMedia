@@ -90,7 +90,13 @@ public:
 
 		return true;
 	}
+	virtual FGuid GetPlayerPluginGUID() const override
+	{
+		// {738BEEB4-3E88-450E-8C1C-6109556279B3}
+		static FGuid PlayerPluginGUID(0x738beeb4, 0x3e88450e, 0x8c1c6109, 0x556279b3);
+		return PlayerPluginGUID;
 
+	}
 	virtual TSharedPtr<IMediaPlayer, ESPMode::ThreadSafe> CreatePlayer(IMediaEventSink& EventSink) override
 	{
 		auto VlcMediaModule = FModuleManager::LoadModulePtr<IVlcMediaModule>("VlcMedia");
